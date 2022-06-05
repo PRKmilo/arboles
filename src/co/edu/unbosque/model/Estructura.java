@@ -94,6 +94,9 @@ public class Estructura {
 	static boolean Close = false;
 	public static int EncontrarDis(Nodo raiz, Nodo first, Nodo second) {
 		int value = 0;
+		if (first==null || second==null) {
+			return 1;
+		}
 		if (raiz == first || raiz == second) {
 			// find the node
 			value = 1;
@@ -114,5 +117,6 @@ public class Estructura {
 		//
 		return 0;
 	}
+	
 
 }
