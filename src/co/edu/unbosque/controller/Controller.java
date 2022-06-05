@@ -22,6 +22,8 @@ public class Controller {
 		arbol.insertar(32,"32");
 		arbol.insertar(0,"0");
 		arbol.recorrer(arbol.raiz);
+		System.out.println(arbol.encontrarnodo(9,arbol.raiz).llave+" este es el valor de el nodo");
+		System.out.println(arbol.ancestro(arbol.raiz, arbol.encontrarnodo(5, arbol.raiz), arbol.encontrarnodo(3, arbol.raiz)).llave+" este es el ancestro");
 	}
 
 }

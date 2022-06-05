@@ -52,6 +52,44 @@ public class Estructura {
 		}
 	}
 	
+	public Nodo encontrarnodo(int value,Nodo raiz) {
+		Nodo aux=raiz;
+		while(aux.llave != value) {
+			if(value < aux.llave) {
+				aux=aux.izquierda;
+			}else {
+				aux=aux.derecha;
+			}if(aux==null) {
+				return null;
+			}
+		}
+		return aux;
+	}
 	
+	public Nodo ancestro(Nodo raiz,Nodo x,Nodo y) {
+		if(raiz == null) {
+			return null;
+		}
+		if(raiz == x || raiz == y) {
+			return raiz;
+		}
+		Nodo left = ancestro(raiz.izquierda,x,y);
+		
+		Nodo right = ancestro(raiz.derecha,x,y);
+		
+		if (left != null && right != null) {
+			return raiz;
+		}
+		
+		if (left != null) {
+			return left;
+		}
+		
+		if (right != null) {
+			return right;
+		}
+		
+		return null;
+	}
 
 }
