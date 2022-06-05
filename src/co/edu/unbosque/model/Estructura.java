@@ -91,5 +91,28 @@ public class Estructura {
 		
 		return null;
 	}
+	static boolean Close = false;
+	public static int EncontrarDis(Nodo raiz, Nodo first, Nodo second) {
+		int value = 0;
+		if (raiz == first || raiz == second) {
+			// find the node
+			value = 1;
+		} else if (raiz == null) {
+			return 0;
+		}
+		int leftvalue = EncontrarDis(raiz.izquierda, first, second);
+		int rightvalue = EncontrarDis(raiz.derecha, first, second);
+		if (leftvalue * rightvalue != 0 || value * leftvalue != 0
+				|| value * rightvalue != 0) {
+			// find the common parent of the first and second node
+			Close = true;
+			return leftvalue + rightvalue;
+		} else if (leftvalue != 0 || rightvalue != 0 || value != 0) {
+			return Close ? leftvalue + rightvalue : leftvalue + rightvalue
+					+ 1;
+		}
+		//
+		return 0;
+	}
 
 }
